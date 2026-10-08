@@ -1165,6 +1165,25 @@ EOF
     ok "Kitty configurado correctamente."
 }
 
+configurar_numlock_sddm() {
+    titulo "Configurar Num Lock"
+
+    info "Activando Num Lock en la pantalla de inicio de SDDM..."
+
+    sudo mkdir -p /etc/sddm.conf.d
+
+    cat <<'EOF' | sudo tee /etc/sddm.conf.d/10-numlock.conf >/dev/null
+[General]
+Numlock=on
+EOF
+
+    if [[ ! -s /etc/sddm.conf.d/10-numlock.conf ]]; then
+        fatal "No se ha podido crear la configuración de Num Lock para SDDM."
+    fi
+
+    ok "Num Lock activado para SDDM."
+}
+
 configurar_mangohud() {
     titulo "Configurar MangoHud"
 
@@ -1350,6 +1369,7 @@ configurar_grub() {
 configurar_sistema() {
     configurar_fish
     configurar_kitty
+    configurar_numlock_sddm
     if [[ -f "$GAMING_BACKPORTS_FLAG" ]]; then
         configurar_mangohud
     fi
