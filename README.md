@@ -230,6 +230,7 @@ Fish se establece como shell predeterminada del usuario.
 - lm-sensors
 - amd64-microcode
 - mesa-utils
+- numlockx
 - vulkan-tools
 - fwupd
 - iproute2
