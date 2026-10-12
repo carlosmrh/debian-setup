@@ -131,6 +131,7 @@ readonly PAQUETES_SISTEMA=(
     kitty
     fonts-jetbrains-mono
     lm-sensors
+    numlockx
     mesa-utils
     vulkan-tools
     fwupd
